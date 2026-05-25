@@ -12,8 +12,8 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.MappedRegistry;
 import net.minecraft.core.RegistrationInfo;
 import net.minecraft.core.WritableRegistry;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -28,7 +28,7 @@ public abstract class MappedRegistryMixin<T> implements RegistrySyncExtension<T>
     @Unique
     private final Reference2BooleanOpenHashMap<T> manager$entryStatus = new Reference2BooleanOpenHashMap<>();
     @Shadow
-    public abstract @NotNull Set<ResourceLocation> keySet();
+    public abstract @NotNull Set<Identifier> keySet();
 
     @Shadow
     @Final

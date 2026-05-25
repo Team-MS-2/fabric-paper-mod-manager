@@ -6,7 +6,6 @@
   "compatibilityLevel": "JAVA_16",
   "mixins": [
     "BuiltInRegistriesMixin",
-    "CommodoreMixin",
     "command.CommandsMixin",
     "command.SharedSuggestionProviderMixin",
     "registry.MainMixin",

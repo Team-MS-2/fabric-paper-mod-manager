@@ -3,16 +3,16 @@ package kim.biryeong.manager;
 import com.mojang.brigadier.tree.LiteralCommandNode;
 import kim.biryeong.manager.api.command.CommandRegistrationCallback;
 import kim.biryeong.manager.command.GetModsCommand;
-import net.fabricmc.api.ModInitializer;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
+import net.minecraft.server.permissions.Permissions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class ModManagerInitializer implements ModInitializer {
+public class ModManagerInitializer {
     public static final String MOD_ID = "mod-manager";
     public static final Logger LOGGER = LoggerFactory.getLogger("Mod Manager");
-    @Override
+
     public void onInitialize() {
         LOGGER.info("Hello Fabric / Paper World!");
 
@@ -20,7 +20,7 @@ public class ModManagerInitializer implements ModInitializer {
             LiteralCommandNode<CommandSourceStack> root = Commands.literal("manager").build();
 
             LiteralCommandNode<CommandSourceStack> mods = Commands.literal("mods")
-                    .requires(source -> source.hasPermission(2))
+                    .requires(source -> source.hasPermission(Permissions.COMMANDS_GAMEMASTER, "modmanager.mods"))
                     .executes(GetModsCommand::execute)
                     .build();
 

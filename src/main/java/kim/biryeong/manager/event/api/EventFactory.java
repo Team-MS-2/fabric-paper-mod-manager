@@ -2,7 +2,7 @@ package kim.biryeong.manager.event.api;
 
 import java.util.function.Function;
 import kim.biryeong.manager.impl.event.EventFactoryImpl;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 public final class EventFactory {
     private EventFactory() { }
@@ -75,7 +75,7 @@ public final class EventFactory {
      * @param <T>            The listener type.
      * @return The Event instance.
      */
-    public static <T> Event<T> createWithPhases(Class<? super T> type, Function<T[], T> invokerFactory, ResourceLocation... defaultPhases) {
+    public static <T> Event<T> createWithPhases(Class<? super T> type, Function<T[], T> invokerFactory, Identifier... defaultPhases) {
         EventFactoryImpl.ensureContainsDefault(defaultPhases);
         EventFactoryImpl.ensureNoDuplicates(defaultPhases);
 

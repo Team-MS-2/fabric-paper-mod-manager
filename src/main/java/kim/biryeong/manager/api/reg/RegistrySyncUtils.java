@@ -2,7 +2,7 @@ package kim.biryeong.manager.api.reg;
 
 import kim.biryeong.manager.impl.registry.RegistrySyncExtension;
 import net.minecraft.core.Registry;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 public class RegistrySyncUtils {
     private RegistrySyncUtils() { }
@@ -15,7 +15,7 @@ public class RegistrySyncUtils {
         }
     }
 
-    public static <T> boolean isServerEntry(Registry<T> registry, ResourceLocation id) {
+    public static <T> boolean isServerEntry(Registry<T> registry, Identifier id) {
         return registry.containsKey(id) ? isServerEntry(registry, registry.getValue(id)) : false;
     }
 
@@ -25,11 +25,11 @@ public class RegistrySyncUtils {
         }
     }
 
-    public static <T> void setServerEntry(Registry<T> registry, ResourceLocation id) {
+    public static <T> void setServerEntry(Registry<T> registry, Identifier id) {
         if (registry.containsKey(id)) {
             setServerEntry(registry, registry.getValue(id));
         } else {
-            throw new IllegalArgumentException("Entry '" + id + "' of registry '" + registry.key().location() + "' isn't registered!");
+            throw new IllegalArgumentException("Entry '" + id + "' of registry '" + registry.key().identifier() + "' isn't registered!");
         }
     }
 }

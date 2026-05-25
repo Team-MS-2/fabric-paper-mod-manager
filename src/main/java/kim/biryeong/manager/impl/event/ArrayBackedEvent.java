@@ -5,7 +5,7 @@ import java.util.*;
 import java.util.function.Function;
 import kim.biryeong.manager.event.api.Event;
 import kim.biryeong.manager.impl.event.toposort.NodeSorting;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 class ArrayBackedEvent<T> extends Event<T> {
     private final Function<T[], T> invokerFactory;
@@ -14,7 +14,7 @@ class ArrayBackedEvent<T> extends Event<T> {
     /**
      * Registered event phases.
      */
-    private final Map<ResourceLocation, EventPhaseData<T>> phases = new LinkedHashMap<>();
+    private final Map<Identifier, EventPhaseData<T>> phases = new LinkedHashMap<>();
     /**
      * Phases sorted in the correct dependency order.
      */
@@ -37,7 +37,7 @@ class ArrayBackedEvent<T> extends Event<T> {
     }
 
     @Override
-    public void register(ResourceLocation phaseIdentifier, T listener) {
+    public void register(Identifier phaseIdentifier, T listener) {
         Objects.requireNonNull(phaseIdentifier, "Tried to register a listener for a null phase!");
         Objects.requireNonNull(listener, "Tried to register a null listener!");
 
@@ -47,7 +47,7 @@ class ArrayBackedEvent<T> extends Event<T> {
         }
     }
 
-    private EventPhaseData<T> getOrCreatePhase(ResourceLocation id, boolean sortIfCreate) {
+    private EventPhaseData<T> getOrCreatePhase(Identifier id, boolean sortIfCreate) {
         EventPhaseData<T> phase = phases.get(id);
 
         if (phase == null) {
@@ -87,7 +87,7 @@ class ArrayBackedEvent<T> extends Event<T> {
     }
 
     @Override
-    public void addPhaseOrdering(ResourceLocation firstPhase, ResourceLocation secondPhase) {
+    public void addPhaseOrdering(Identifier firstPhase, Identifier secondPhase) {
         Objects.requireNonNull(firstPhase, "Tried to add an ordering for a null phase.");
         Objects.requireNonNull(secondPhase, "Tried to add an ordering for a null phase.");
         if (firstPhase.equals(secondPhase)) throw new IllegalArgumentException("Tried to add a phase that depends on itself.");

@@ -16,12 +16,15 @@ tasks {
 	processResources {
 		inputs.properties("version" to version.toString())
 
-		filesMatching("fabric.mod.json") {
+		filesMatching("horizon.plugin.json") {
 			expand(
 				mapOf(
 					"version" to version.toString()
 				)
 			)
 		}
+	}
+	reobfJar {
+		enabled = false
 	}
 }

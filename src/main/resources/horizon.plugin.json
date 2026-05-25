@@ -1,0 +1,7 @@
+{
+  "name": "ModManager",
+  "version": "${version}",
+  "description": "All in one mod manager. Supports Initializer, Event API, ModList, etc.",
+  "authors": ["biryeongtrain"],
+  "mixins": ["modManager.mixins.json"]
+}

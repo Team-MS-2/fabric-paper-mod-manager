@@ -3,7 +3,7 @@ metadata.format.version = "1.1"
 [versions]
 fabric-loader = "2.0.0+fabric.0.17.2"
 
-paper-api = "1.21.6-R0.1-SNAPSHOT"
+paper-api = "1.21.11-R0.1-SNAPSHOT"
 nbtapi = "2.12.4"
 
 gradle-spotless = "6.25.0"

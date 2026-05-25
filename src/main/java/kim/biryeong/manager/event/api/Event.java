@@ -1,6 +1,6 @@
 package kim.biryeong.manager.event.api;
 
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 /**
  * imported from Fabric Event API
@@ -12,11 +12,11 @@ public abstract class Event<T> {
         return invoker;
     }
     public abstract void register(T listener);
-    public static final ResourceLocation EVENT_BUS = ResourceLocation.fromNamespaceAndPath("fabric", "default");
+    public static final Identifier EVENT_BUS = Identifier.fromNamespaceAndPath("fabric", "default");
 
-    public void register(ResourceLocation phase, T listener) {
+    public void register(Identifier phase, T listener) {
         register(listener);
     }
-    public void addPhaseOrdering(ResourceLocation firstPhase, ResourceLocation secondPhase) {
+    public void addPhaseOrdering(Identifier firstPhase, Identifier secondPhase) {
     }
 }
