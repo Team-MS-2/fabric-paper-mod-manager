@@ -12,6 +12,12 @@ fabric-paper-mod-manager는 Fabric/Paper 혼합 런타임에서 모드/플러그
 | 기본 브랜치 | `main` |
 | 유형 | Java/Gradle 프로젝트 |
 
+## 주요 기능
+
+- Fabric/Paper 혼합 런타임에서 모드성 jar와 Paper plugin 배치를 보조합니다.
+- 서버 시작 시 필요한 mod/plugin 상태를 관리하는 경량 도구 역할을 합니다.
+- Canvas/Horizon 계열 마이그레이션에서 런타임 자산 관리를 단순화합니다.
+
 ## 저장소 구조
 
 - `buildSrc/`
