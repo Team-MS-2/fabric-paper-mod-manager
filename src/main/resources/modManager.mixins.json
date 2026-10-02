@@ -7,7 +7,6 @@
   "mixins": [
     "BuiltInRegistriesMixin",
     "command.CommandsMixin",
-    "command.SharedSuggestionProviderMixin",
     "registry.MainMixin",
     "registry.MappedRegistryMixin"
   ]

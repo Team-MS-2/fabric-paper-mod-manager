@@ -51,7 +51,7 @@ public abstract class MappedRegistryMixin<T> implements RegistrySyncExtension<T>
         this.alreadyOrdered = false;
     }
 
-    @Inject(method = "freeze", at = @At(value = "INVOKE", target = "Ljava/util/Map;isEmpty()Z"))
+    @Inject(method = "freeze", at = @At(value = "INVOKE", target = "Ljava/util/Map;isEmpty()Z"), require = 1)
     private void reorderOnFreeze(CallbackInfoReturnable<Set<ResourceKey<T>>> cir) {
         this.manager$reorderEntries();
     }

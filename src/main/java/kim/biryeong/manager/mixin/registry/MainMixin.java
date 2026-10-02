@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(Main.class)
 public class MainMixin {
-    @Inject(method = "main", at = @At(value = "INVOKE", target = "Lnet/minecraft/Util;startTimerHackThread()V"))
+    @Inject(method = "main", at = @At(value = "INVOKE", target = "Lnet/minecraft/util/Util;startTimerHackThread()V"), require = 1)
     private static void afterModInit(CallbackInfo ci) {
         for (var reg : BuiltInRegistries.REGISTRY) {
             if (reg instanceof RegistrySyncExtension<?> ext) {
